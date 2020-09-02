@@ -12,8 +12,9 @@ class Solution {
         String key = "";
         for(char c : searchWord.toCharArray()){
             key += c;
-            String ceiling = map.ceilingKey(key);
-            String floor = map.floorKey(key + "~");
+            String ceiling = map.ceilingKey(key); //Returns the least key greater than or equal to the given key, or null if there is no such key.
+            String floor = map.floorKey(key + "~"); //Returns the greatest key less than or equal to the given key, or null if there is no such key.
+            //add a ~ since we couldn't find a floorkey since when it is the root its the smallest 
             if(ceiling == null || floor == null) break;
             res.add(productsList.subList(map.get(ceiling), Math.min(map.get(ceiling) + 3, map.get(floor) + 1))); //min checks if the following 3 are valid
         }
@@ -55,3 +56,4 @@ class Solution {
         LinkedList<String> suggestion = new LinkedList<>();
     }
 }
+//time: O(m * n) since each node we need to do a comparasion
