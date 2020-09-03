@@ -1,5 +1,6 @@
+//use array to store the key. use hashcode to calculate the index in the array. When we have the hash collision, use List to append
 class MyHashMap {
-    // private int MAX_SIZE = 256;
+    // private int MAX_SIZE = 256; if the size is exceed. we need to do rehashing 
     final ListNode[] nodes;
     /** Initialize your data structure here. */
     public MyHashMap() {
@@ -31,12 +32,12 @@ class MyHashMap {
         if(prev.next == null) return;
         prev.next = prev.next.next;
     }
-    private int idx(int key){
+    private int idx(int key){ //use hashcode to make Get method the time O(1)
         return Integer.hashCode(key) % nodes.length;
     }
     private ListNode find(ListNode bucket, int key){
         ListNode node = bucket, prev = null;
-        while(node != null && node.key != key){
+        while(node != null && node.key != key){ //find the node 
             prev = node;
             node = node.next;
         }
