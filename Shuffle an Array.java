@@ -18,6 +18,8 @@ class Solution {
         int i = 0;
         while(i < temp.length){
             int j = rd.nextInt(temp.length);
+            //	nextInt(int bound) Returns a pseudorandom, uniformly distributed int value between 0 (inclusive) 
+            //and the specified value (exclusive), drawn from this random number generator's sequence.
             if(!visited[j]){
                 temp[j] = nums[i];
                 i++;
@@ -28,3 +30,4 @@ class Solution {
         return temp;
     }
 }
+
