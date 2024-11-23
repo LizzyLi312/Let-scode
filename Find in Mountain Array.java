@@ -31,9 +31,9 @@ class Solution {
             l = R;
             r = mountainArr.length() - 1;
             while (l < r) {
-                int mid = l + (r - l + 1) / 2;
-                if (mountainArr.get(mid) >= target) l = mid;
-                else r = mid - 1;
+                int mid = l + (r - l) / 2;
+                if (mountainArr.get(mid) <= target) r = mid;
+                else l = mid + 1;
             }
             res = mountainArr.get(r) == target ? r : -1;
         }
