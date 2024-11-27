@@ -28,3 +28,24 @@ class Solution {
 }
 
 //solution2 using hashmap to store the indx and move l to the last occurence idx + 1
+class Solution {
+    public int maximumUniqueSubarray(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+        int res = 0, n = nums.length, sum = 0;
+        HashMap<Integer, Integer> idx = new HashMap<>();
+
+        for (int l = 0, r = 0; r < n; r++) {
+            sum += nums[r];
+            if (idx.containsKey(nums[r])) {
+                while (l < n && idx.containsKey(nums[r])) {
+                    sum -= nums[l];
+                    idx.remove(nums[l++]);
+                }
+            }
+            idx.put(nums[r], r);
+            res = Math.max(sum, res);
+        }
+        return res;
+    }
+}
