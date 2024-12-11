@@ -1,3 +1,3 @@
 # Let-scode
-Yaddaadme
-This is my code from leetcode. yaddadadame
+
+This is my code from leetcode. 
