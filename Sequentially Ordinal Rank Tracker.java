@@ -3,6 +3,9 @@
 class SORTracker {
     PriorityQueue<Node> minHeap, maxHeap;
     public SORTracker() {
+        // if string1 > string2, it returns positive number
+        // if string1 < string2, it returns negative number
+        // if string1 == string2, it returns 0
         minHeap = new PriorityQueue<>((o1, o2) -> o1.score != o2.score ? o1.score - o2.score : o2.s.compareTo(o1.s)); // increasing order 
         maxHeap = new PriorityQueue<>((o1, o2) -> o1.score != o2.score ? o2.score - o1.score : o1.s.compareTo(o2.s)); // descreasing order 
     }
