@@ -39,3 +39,5 @@ class Solution {
         return prob[end_node];
     }
 }
+
+//time: O(V*E)
