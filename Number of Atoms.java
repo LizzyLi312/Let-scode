@@ -9,7 +9,7 @@ class Solution {
             i++;
             if(c == '('){ //build a new map to store the elements in the ( )
                 stack.push(map);
-                map = new TreeMap<>();
+                map = new HashMap<>();
             }
             
             else if(c == ')'){ //collet the element in these 2 maps and make them into one 
@@ -38,7 +38,7 @@ class Solution {
                     val = val * 10 + formula.charAt(i++) - '0';
                 }
                 if(val == 0) val = 1;
-                map.put(s, map.getOrDefault(s, 0) + val);
+                map.put(s, map.getOrDefault(s, 0) + val); // need to add the previous value for case like HNO2NMg 
             }
         }
         StringBuilder sb = new StringBuilder();
